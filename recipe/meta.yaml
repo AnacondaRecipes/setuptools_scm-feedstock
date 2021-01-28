@@ -24,6 +24,7 @@ outputs:
       run:
         - python
         - setuptools
+        - toml
     test:
       imports:
         - setuptools_scm
@@ -46,7 +47,7 @@ about:
   home: https://github.com/pypa/setuptools_scm/
   license: MIT
   license_file: LICENSE
-  summary: 'The blessed package to manage your versions by scm tags'
+  summary: The blessed package to manage your versions by scm tags
 
 extra:
   recipe-maintainers:

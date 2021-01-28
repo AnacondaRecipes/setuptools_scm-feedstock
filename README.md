@@ -5,11 +5,9 @@ Home: https://github.com/pypa/setuptools_scm/
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/setuptools_scm-feedstock/blob/master/LICENSE.txt)
 
 Summary: The blessed package to manage your versions by scm tags
-
-
 
 Current build status
 ====================
