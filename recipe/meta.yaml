@@ -19,11 +19,11 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python
+        - python >3.6
         - pip
       run:
-        - python
-        - setuptools
+        - python >3.6 
+        - setuptools >45
         - toml
     test:
       imports:
