@@ -11,12 +11,12 @@ source:
 
 build:
   number: 0
+  skip: True  # [py<37]
 
 outputs:
   - name: setuptools-scm
-    script: {{ PYTHON }} -m pip install . --no-deps -vv
-    build:
-      skip: True  # [py<37]
+    script: build_base.bat  # [win]
+    script: build_base.sh  # [not win]
     requirements:
       host:
         - python
