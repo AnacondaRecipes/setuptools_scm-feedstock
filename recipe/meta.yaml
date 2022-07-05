@@ -1,39 +1,40 @@
-{% set version = "6.3.2" %}
+{% set name = "setuptools_scm" %}
+{% set version = "7.0.4" %}
 
 package:
-  name: setuptools_scm
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/setuptools_scm/setuptools_scm-{{ version }}.tar.gz
-  sha256: a49aa8081eeb3514eb9728fa5040f2eaa962d6c6f4ec9c32f6c1fba88f88a0f2
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: c27bc1f48593cfc9527251f1f0fc41ce282ea57bbc7fd5a1ea3acb99325fab4c
 
 build:
   number: 0
-  noarch: python
 
 outputs:
   - name: setuptools-scm
-    script: build_base.sh
+    script: {{ PYTHON }} -m pip install . --no-deps -vv
     build:
-      noarch: python
+      skip: True  # [py<37]
     requirements:
       host:
         - python
         - pip
         - setuptools
-        - wheel
+        - typing-extensions
       run:
-        - python >=3.6
+        - python
+        - importlib-metadata  # [py<38]
         - packaging >=20.0
         - setuptools >=45
         - tomli >=1.0.0
+        - typing-extensions
     test:
       imports:
         - setuptools_scm
       requires:
         - pip
-        - python <3.10
       commands:
         - pip check
 
