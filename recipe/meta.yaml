@@ -1,5 +1,5 @@
 {% set name = "setuptools_scm" %}
-{% set version = "7.0.4" %}
+{% set version = "7.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c27bc1f48593cfc9527251f1f0fc41ce282ea57bbc7fd5a1ea3acb99325fab4c
+  sha256: 6c508345a771aad7d56ebff0e70628bf2b0ec7573762be9960214730de278f27
 
 build:
   number: 0
@@ -22,6 +22,7 @@ outputs:
         - python
         - pip
         - setuptools
+        - wheel
         - typing-extensions
       run:
         - python
