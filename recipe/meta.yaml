@@ -23,6 +23,7 @@ outputs:
         - pip
         - setuptools
         - wheel
+        - packaging
         - typing-extensions
       run:
         - python
