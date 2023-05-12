@@ -30,7 +30,7 @@ outputs:
         - importlib-metadata  # [py<38]
         - packaging >=20.0
         - setuptools >=45
-        - tomli >=1.0.0
+        - tomli >=1.0.0  # [py<311]
         - typing-extensions
     test:
       imports:
