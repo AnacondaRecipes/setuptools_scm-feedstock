@@ -2,7 +2,7 @@
 {% set version = "7.1.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: setuptools_scm-split
   version: {{ version }}
 
 source:
