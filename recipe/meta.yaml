@@ -24,7 +24,7 @@ outputs:
         - pip
         - setuptools
         - wheel
-        - tomli
+        - tomli  # [py<311]
       run:
         - python
         - packaging >=20.0
