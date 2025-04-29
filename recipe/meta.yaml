@@ -11,7 +11,7 @@ source:
   sha256: 51cfdd1deefc9b8c08d1a61e940a59c4dec39eb6c285d33fa2f1b4be26c7874d
 
 build:
-  number: 1
+  number: 2
   skip: True  # [py<38]
 
 outputs:
