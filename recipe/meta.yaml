@@ -1,36 +1,36 @@
 {% set name = "setuptools_scm" %}
-{% set name_var = name|replace("_", "-") %}
-{% set version = "8.2.1" %}
+{% set version = "8.3.1" %}
 
 package:
   name: setuptools_scm-split
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name_var }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 51cfdd1deefc9b8c08d1a61e940a59c4dec39eb6c285d33fa2f1b4be26c7874d
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace("-", "_") }}-{{ version }}.tar.gz
+  sha256: 3d555e92b75dacd037d32bafdf94f97af51ea29ae8c7b234cf94b7a5bd242a63
 
 build:
-  number: 2
-  skip: True  # [py<38]
+  number: 0
+  skip: true  # [py<38]
 
 outputs:
   - name: setuptools-scm
     script: build_base.bat  # [win]
-    script: build_base.sh   # [not win]
+    script: build_base.sh  # [not win]
     requirements:
       host:
         - python
         - pip
         - setuptools
         - wheel
-        - tomli  # [py<311]
+        - tomli <=2.0.2  # [py<311]
       run:
         - python
         - packaging >=20.0
         - setuptools
-        - tomli >=1.0.0      # [py<311]
+        - tomli >=1.0.0  # [py<311]
         - typing-extensions  # [py<310]
+        - importlib-metadata >=4.6  # [py<310]
     test:
       imports:
         - setuptools_scm
@@ -38,7 +38,6 @@ outputs:
         - pip
       commands:
         - pip check
-
   - name: setuptools_scm
     build:
       noarch: generic
