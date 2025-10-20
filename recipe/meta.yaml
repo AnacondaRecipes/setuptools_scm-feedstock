@@ -1,5 +1,5 @@
 {% set name = "setuptools_scm" %}
-{% set version = "8.3.1" %}
+{% set version = "9.2.2" %}
 
 package:
   name: setuptools_scm-split
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace("-", "_") }}-{{ version }}.tar.gz
-  sha256: 3d555e92b75dacd037d32bafdf94f97af51ea29ae8c7b234cf94b7a5bd242a63
+  sha256: 1c674ab4665686a0887d7e24c03ab25f24201c213e82ea689d2f3e169ef7ef57
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<38]
 
 outputs:
