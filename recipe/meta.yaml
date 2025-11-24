@@ -1,16 +1,16 @@
 {% set name = "setuptools_scm" %}
-{% set version = "8.3.1" %}
+{% set version = "9.2.2" %}
 
 package:
-  name: setuptools_scm-split
+  name: {{ name }}-split
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace("-", "_") }}-{{ version }}.tar.gz
-  sha256: 3d555e92b75dacd037d32bafdf94f97af51ea29ae8c7b234cf94b7a5bd242a63
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 1c674ab4665686a0887d7e24c03ab25f24201c213e82ea689d2f3e169ef7ef57
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<38]
 
 outputs:
@@ -19,9 +19,9 @@ outputs:
     script: build_base.sh  # [not win]
     requirements:
       host:
-        - python
         - pip
-        - setuptools
+        - python
+        - setuptools >=61
         - wheel
         - tomli <=2.0.2  # [py<311]
       run:
@@ -30,7 +30,7 @@ outputs:
         - setuptools
         - tomli >=1.0.0  # [py<311]
         - typing-extensions  # [py<310]
-        - importlib-metadata >=4.6  # [py<310]
+    # Upstream tests have a problem - importlib.metadata.PackageNotFoundError: No package metadata was found for build
     test:
       imports:
         - setuptools_scm
@@ -38,6 +38,7 @@ outputs:
         - pip
       commands:
         - pip check
+        
   - name: setuptools_scm
     build:
       noarch: generic
