@@ -22,12 +22,12 @@ outputs:
         - pip
         - python
         - setuptools >=77.0.3
-        - vcs-versioning >=2.3.2.dev0,<3
+        - vcs-versioning >=2.5.0.dev0,<3
         - tomli >=1.0.0  # [py<311]
         - typing-extensions >=4.1  # [py<311]
       run:
         - python
-        - vcs-versioning >=2.3.2.dev0,<3
+        - vcs-versioning >=2.5.0.dev0,<3
         - packaging >=20.0
         - setuptools
         - tomli >=1.0.0  # [py<311]
